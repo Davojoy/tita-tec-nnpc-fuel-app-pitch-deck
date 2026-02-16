@@ -32,7 +32,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, slideIndex, totalSlide
         <div className="text-[10px] md:text-xs text-gray-400 font-medium">
           CONFIDENTIAL & PROPRIETARY
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 md:hidden">
            <div className="text-xs md:text-sm font-heading font-bold text-nnpc-green">
              {slideIndex + 1} <span className="text-gray-300 mx-1">/</span> {totalSlides}
            </div>

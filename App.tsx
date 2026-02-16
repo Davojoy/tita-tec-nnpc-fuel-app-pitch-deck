@@ -58,21 +58,30 @@ export default function App() {
       </Layout>
 
       {/* Navigation Controls (Floating) */}
-      <div className="absolute bottom-14 right-6 md:bottom-8 md:right-8 z-50 flex gap-2">
-        <button 
-          onClick={prevSlide}
-          disabled={currentSlide === 0}
-          className="p-3 rounded-full bg-white/80 hover:bg-white text-nnpc-dark shadow-lg backdrop-blur disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-        >
-          <ChevronLeft size={20} className="md:w-6 md:h-6" />
-        </button>
-        <button 
-          onClick={nextSlide}
-          disabled={currentSlide === SLIDES.length - 1}
-          className="p-3 rounded-full bg-nnpc-green hover:bg-nnpc-dark text-white shadow-lg backdrop-blur disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-        >
-          <ChevronRight size={20} className="md:w-6 md:h-6" />
-        </button>
+      <div className="absolute bottom-14 right-6 md:bottom-8 md:right-8 z-50 flex flex-col items-center md:items-end gap-3">
+        <div className="flex gap-2">
+          <button 
+            onClick={prevSlide}
+            disabled={currentSlide === 0}
+            className="p-3 rounded-full bg-white/80 hover:bg-white text-nnpc-dark shadow-lg backdrop-blur disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+          >
+            <ChevronLeft size={20} className="md:w-6 md:h-6" />
+          </button>
+          <button 
+            onClick={nextSlide}
+            disabled={currentSlide === SLIDES.length - 1}
+            className="p-3 rounded-full bg-nnpc-green hover:bg-nnpc-dark text-white shadow-lg backdrop-blur disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+          >
+            <ChevronRight size={20} className="md:w-6 md:h-6" />
+          </button>
+        </div>
+        
+        {/* Slide Counter for Desktop - Positioned below the buttons */}
+        <div className="hidden md:flex items-center justify-center px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full shadow-md border border-gray-100">
+          <span className="text-sm font-heading font-bold text-nnpc-green">
+            {currentSlide + 1} <span className="text-gray-300 mx-1">/</span> {SLIDES.length}
+          </span>
+        </div>
       </div>
     </div>
   );
