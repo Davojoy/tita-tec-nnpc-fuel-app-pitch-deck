@@ -25,6 +25,12 @@ import {
   MapPin
 } from 'lucide-react';
 import { SlideProps } from '../types';
+import nnpcAppImage from '/images/nr-nnpc-fuel-app-image.jpeg';
+import tisanImage from '/images/Tisan Toye.jpeg';
+import johnImage from '/images/John Amondi.jpeg';
+import emmanuelImage from '/images/Emmanuel Doji.jpeg';
+
+
 
 // Animation variants
 const containerVariants = {
@@ -47,14 +53,14 @@ const itemVariants = {
 // --- Slide 1: Cover ---
 export const Slide1: React.FC<SlideProps> = () => (
   <motion.div 
-    className="h-full flex flex-col justify-center relative min-h-[500px]"
+    className="h-full flex flex-col lg:flex-row items-center justify-between relative min-h-[500px] gap-12"
     variants={containerVariants}
     initial="hidden"
     animate="visible"
   >
     <div className="absolute right-[-10%] top-[-10%] w-[60%] h-[80%] bg-nnpc-light rounded-full opacity-20 blur-3xl" />
     
-    <motion.div variants={itemVariants} className="z-10 max-w-4xl">
+    <motion.div variants={itemVariants} className="z-10 max-w-2xl lg:w-1/2">
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-nnpc-green p-3 rounded-lg">
           <Fuel className="w-6 h-6 md:w-8 md:h-8 text-white" />
@@ -69,9 +75,23 @@ export const Slide1: React.FC<SlideProps> = () => (
       
       <div className="h-1 w-24 bg-accent-red mb-8 rounded-full"></div>
       
-      <h2 className="text-xl md:text-2xl lg:text-3xl text-gray-600 font-light max-w-2xl leading-relaxed">
+      <h2 className="text-xl md:text-2xl lg:text-3xl text-gray-600 font-light leading-relaxed">
         Delivering a user-centric, scalable, and efficient fuel app ecosystem.
       </h2>
+    </motion.div>
+
+    <motion.div 
+      variants={itemVariants}
+      className="z-10 lg:w-1/2 flex justify-center lg:justify-end"
+    >
+      <div className="relative group w-full max-w-[450px]">
+        <div className="absolute -inset-1 bg-gradient-to-r from-nnpc-green to-nnpc-light rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+        <img 
+          src={nnpcAppImage} 
+          alt="NNPC Fuel App" 
+          className="relative rounded-2xl shadow-2xl w-full h-auto object-cover border border-white/20"
+        />
+      </div>
     </motion.div>
   </motion.div>
 );
@@ -225,7 +245,7 @@ export const Slide3: React.FC<SlideProps> = () => (
              { 
                  title: "Transaction Friction", 
                  desc: "Multiple steps and manual inputs create unnecessary delays at the pump.",
-                 stat: "Avg. 4 mins",
+                 stat: "Avg. 10 mins",
                  icon: AlertCircle,
                  color: "text-red-600",
                  bg: "bg-red-50",
@@ -234,7 +254,7 @@ export const Slide3: React.FC<SlideProps> = () => (
              { 
                  title: "Siloed Ecosystem", 
                  desc: "Loyalty rewards and analytics are disconnected from the main transaction flow.",
-                 stat: "0% Integration",
+                 stat: "0% - 15% Integration",
                  icon: Layers,
                  color: "text-gray-600",
                  bg: "bg-gray-50",
@@ -672,9 +692,9 @@ export const Slide8: React.FC<SlideProps> = () => (
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       {[
-        { name: "Tisan Toye", role: "CEO & Head of Operations", sub: "Strategy, Operations, Delivery", color: "border-t-4 border-nnpc-green" },
-        { name: "John Amondi", role: "CTO & Product Lead", sub: "Technical Delivery, Roadmap", color: "border-t-4 border-blue-600" },
-        { name: "Emmanuel Doji", role: "Technical Lead", sub: "Architecture, Engineering, Scalability", color: "border-t-4 border-gray-600" },
+        { name: "Tisan Toye", role: "CEO & Head of Operations", sub: "Strategy, Operations, Delivery", color: "border-t-4 border-nnpc-green", image: tisanImage },
+        { name: "John Amondi", role: "CTO & Product Lead", sub: "Technical Delivery, Roadmap", color: "border-t-4 border-blue-600", image: johnImage },
+        { name: "Emmanuel Doji", role: "Technical Lead", sub: "Architecture, Engineering, Scalability", color: "border-t-4 border-gray-600", image: emmanuelImage },
       ].map((person, i) => (
         <motion.div 
           key={i} 
@@ -682,10 +702,10 @@ export const Slide8: React.FC<SlideProps> = () => (
           initial="hidden" 
           animate="visible" 
           transition={{ delay: i * 0.2 }}
-          className={`bg-white p-6 md:p-8 rounded-xl shadow-lg ${person.color} flex flex-col items-center text-center`}
+          className={`bg-white p-6 md:p-8 rounded-xl shadow-lg ${person.color} flex flex-col items-center text-center group hover:scale-[1.02] transition-all duration-300`}
         >
-           <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-100 rounded-full mb-4 flex items-center justify-center text-lg md:text-xl font-bold text-gray-400">
-             {person.name.charAt(0)}
+           <div className="w-20 h-20 md:w-24 md:h-24 rounded-full mb-4 overflow-hidden border-2 border-gray-100 shadow-md group-hover:border-nnpc-green transition-colors">
+             <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
            </div>
            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">{person.name}</h3>
            <p className="text-xs md:text-sm font-bold text-nnpc-green mb-3">{person.role}</p>
@@ -766,7 +786,7 @@ export const Slide10: React.FC<SlideProps> = () => (
         className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8 relative z-10"
       >
         {[
-          { step: "01", title: "Pilot", desc: "UX & incentive improvements at selected stations." },
+          { step: "01", title: "Pilot", desc: " UX & Incentive Improvements, Easier Payment Pathways and Better Customer/Agent support." },
           { step: "02", title: "Collaborate", desc: "Work with NNPC teams for feedback & iteration." },
           { step: "03", title: "Scale", desc: "Deploy improvements across app and backend." },
           { step: "04", title: "Partner", desc: "Establish long-term digital product management." },
