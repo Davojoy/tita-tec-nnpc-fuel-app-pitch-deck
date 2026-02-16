@@ -58,7 +58,7 @@ export default function App() {
       </Layout>
 
       {/* Navigation Controls (Floating) */}
-      <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex gap-2">
+      <div className="absolute bottom-10 right-6 md:bottom-8 md:right-8 z-50 flex gap-2">
         <button 
           onClick={prevSlide}
           disabled={currentSlide === 0}
