@@ -27,7 +27,7 @@ import {
 import { SlideProps } from '../types';
 import nnpcAppImage from '/images/nr-nnpc-fuel-app-image.jpeg';
 import tisanImage from '/images/Tisan Toye.jpeg';
-import johnImage from '/images/John Amondi.jpeg';
+import johnImage from '/images/John Amondi-1.png';
 import emmanuelImage from '/images/Emmanuel Doji.jpeg';
 
 
