@@ -704,7 +704,7 @@ export const Slide8: React.FC<SlideProps> = () => (
           transition={{ delay: i * 0.2 }}
           className={`bg-white p-6 md:p-8 rounded-xl shadow-lg ${person.color} flex flex-col items-center text-center group hover:scale-[1.02] transition-all duration-300`}
         >
-           <div className="w-20 h-20 md:w-24 md:h-24 rounded-full mb-4 overflow-hidden border-2 border-gray-100 shadow-md group-hover:border-nnpc-green transition-colors">
+           <div className="w-20 h-20 md:w-24 md:h-24 rounded-full mb-4 overflow-hidden border-4 border-white shadow-xl bg-white">
              <img src={person.image} alt={person.name} className="w-full h-full object-cover" />
            </div>
            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">{person.name}</h3>
