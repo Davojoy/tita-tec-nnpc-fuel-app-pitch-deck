@@ -284,13 +284,13 @@ export const Slide3: React.FC<SlideProps> = () => (
 
       {/* Right: Visual Flow Analysis */}
       <motion.div 
-        className="col-span-1 lg:col-span-5 relative h-full min-h-[400px]"
+        className="col-span-1 lg:col-span-5 relative min-h-[500px] lg:h-full"
         initial={{ opacity: 0, x: 20 }} 
         animate={{ opacity: 1, x: 0 }} 
         transition={{ delay: 0.4 }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 shadow-inner flex flex-col p-6 md:p-8 overflow-hidden">
-            <h3 className="font-heading font-bold text-gray-400 text-xs uppercase tracking-widest mb-6 text-center">User Journey Friction Map</h3>
+        <div className="lg:absolute lg:inset-0 bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 shadow-inner flex flex-col p-6 md:p-8">
+            <h3 className="font-heading font-bold text-gray-400 text-xs uppercase tracking-widest mb-6 lg:mb-8 text-center">User Journey Friction Map</h3>
             
             <div className="relative flex-grow flex flex-col justify-between py-2 gap-4">
                 {/* Connecting Line */}
@@ -330,7 +330,7 @@ export const Slide3: React.FC<SlideProps> = () => (
             </div>
             
             {/* Bottom Insight */}
-            <div className="mt-6 p-4 bg-white rounded-xl border border-red-100 shadow-sm flex items-center gap-4">
+            <div className="mt-8 lg:mt-6 p-4 bg-white rounded-xl border border-red-100 shadow-sm flex items-center gap-4">
                 <div className="bg-red-100 p-2 rounded-lg">
                     <TrendingUp className="text-red-600 w-5 h-5" />
                 </div>
